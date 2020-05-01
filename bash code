@@ -1,0 +1,36 @@
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://webappbuck/index.html                                                                                                                                                                 
+upload: module-1/web/index.html to s3://webappbuck/index.html  
+JesseOk:~/environment/aws-modern-application-workshop (python) $ cd ~/environment/aws-modern-application-workshop/module-2/app
+JesseOk:~/environment/aws-modern-application-workshop/module-2/app (python) $ docker build . -t JessyOk.dkr.ecr.eu-west-1.amazonaws.com/mythicalmysfits/service:latestSending build context to Docker daemon  14.85kB
+Step 1/13 : FROM ubuntu:latest
+latest: Pulling from library/ubuntu
+423ae2b273f4: Pull complete 
+de83a2304fa1: Pull complete 
+f9a83bce3af0: Pull complete 
+b6b53be908de: Pull complete 
+Digest: sha256:04d48df82c938587820d7b6006f5071dbbffceb7ca01d2814f81857c631d44df
+Status: Downloaded newer image for ubuntu:latest
+ ---> 72300a873c2c
+# the build process has 13 steps; I only added step 1/13
+
+ ---> c8c7f5fcf64f
+Successfully built c8c7f5fcf64f
+Successfully tagged JessyOk.dkr.ecr.eu-west-1.amazonaws.com/mythicalmysfits/service:latest
+JesseOk:~/environment/aws-modern-application-workshop/module-2/app (python) $ docker run -p 8080:8080 JessyOk.dkr.ecr.eu-west-1.amazonaws.com/mythicalmysfits/service:latest
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+
+#
+JesseOk:~/environment $ aws ecr create-repository --repository-name mythicalmysfits/service
+An error occurred (RepositoryAlreadyExistsException) when calling the CreateRepository operation: The repository with name 'mythicalmysfits/service' already exists in the registry with id '957506323477'
+
+
+JesseOk:~/environment $ $(aws ecr get-login --no-include-email)
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+JesseOk:~/environment $ 
+
+

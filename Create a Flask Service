@@ -1,0 +1,9 @@
+A. Build a Docker image    
+# change directory to module2/app     
+cd ~/environment/aws-modern-application-workshop/module-2/app 
+
+# add account ID and region     
+docker build . -t JessyOk.dkr.ecr.eu-west-1.amazonaws.com/mythicalmysfits/service:latest 
+
+B. Test service locally 
+#

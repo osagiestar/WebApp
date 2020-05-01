@@ -1,0 +1,22 @@
+JesseOk:~/environment $ aws cloudformation describe-stacks --stack-name MythicalMysfitsCoreStack{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:957506323477:stack/MythicalMysfitsCoreStack/a73b2770-6340-11ea-ae6b-0265d6cdeea8", 
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }, 
+            "Description": "This stack deploys the core network infrastructure and IAM resources to be used for a service hosted in Amazon ECS using AWS Fargate.", 
+            "Tags": [], 
+            "EnableTerminationProtection": false, 
+            "CreationTime": "2020-03-11T02:33:12.502Z", 
+            "Capabilities": [
+                "CAPABILITY_NAMED_IAM"
+            ], 
+            "StackName": "MythicalMysfitsCoreStack", 
+            "NotificationARNs": [], 
+            "StackStatus": "CREATE_IN_PROGRESS", 
+            "DisableRollback": false, 
+            "RollbackConfiguration": {}
+        }
+    ]
+}
