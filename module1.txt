@@ -1,0 +1,18 @@
+# clone IDE environment on browser    
+git clone -b python https://github.com/aws-samples/aws-modern-application-workshop.git
+
+#change directorry to newly cloned directory    
+cd aws-modern-application-workshop
+
+# creating S3 Bucket "webappbuck"     aws s3 mb s3://webappbuck
+
+# allows configuration of the bucket (remember to save the changes to policy before run the code below on the terminal             
+aws s3 website s3://webappbuck --index-document index.html
+
+# setting up bucket policy    
+aws s3api put-bucket-policy --bucket webappbuck --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+
+# publish static webpage     
+aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://webappbuck/index.html  
+
+

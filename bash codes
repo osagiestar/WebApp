@@ -1,0 +1,17 @@
+JesseOk:~/environment $ git clone -b python https://github.com/aws-samples/aws-modern-application-workshop.git
+Cloning into 'aws-modern-application-workshop'...
+remote: Enumerating objects: 40, done.
+remote: Counting objects: 100% (40/40), done.
+remote: Compressing objects: 100% (37/37), done.
+remote: Total 5869 (delta 9), reused 7 (delta 3), pack-reused 5829
+Receiving objects: 100% (5869/5869), 18.33 MiB | 13.69 MiB/s, done.
+Resolving deltas: 100% (2497/2497), done.
+JesseOk:~/environment $ cd aws-modern-application-workshop
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3 mb s3://webappbuck                                                                            
+make_bucket: webappbuck
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3 website s3://webappbuck --index-document index.html                                                                                     
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3api put-bucket-policy --bucket webappbuck --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+An error occurred (MalformedPolicy) when calling the PutBucketPolicy operation: Policy has invalid resource
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3api put-bucket-policy --bucket webappbuck --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+JesseOk:~/environment/aws-modern-application-workshop (python) $ aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://webappbuck/index.html                                                                                                                                               
+upload: module-1/web/index.html to s3://webappbuck/index.html  
